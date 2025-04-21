@@ -9,7 +9,6 @@ import xyz.ronissolutions.financesapi.mapper.RevenueMapper;
 import xyz.ronissolutions.financesapi.repository.RevenueRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RevenueService {
@@ -33,10 +32,32 @@ public class RevenueService {
         return RevenueMapper.toResponseDTO(revenue);
     }
 
-    public RevenueResponseDTO getRevenue(Long id) {
+    public RevenueResponseDTO findById(Long id) {
         Revenue revenue = revenueRepository.findById(id)
                 .orElseThrow(() -> new RevenueNotFoundException(id));
 
+        return RevenueMapper.toResponseDTO(revenue);
+    }
+
+    public RevenueResponseDTO update(Long id, RevenueRequestDTO revenueRequestDTO) {
+
+        Revenue revenue = revenueRepository.findById(id)
+                .orElseThrow(() -> new RevenueNotFoundException(id));
+
+        revenue.setAmount(revenueRequestDTO.getAmount());
+        revenue.setDescription(revenueRequestDTO.getDescription());
+        revenue.setData(revenueRequestDTO.getData());
+        revenue.setCategories(revenueRequestDTO.getCategories());
+
+        revenueRepository.save(revenue);
+        return RevenueMapper.toResponseDTO(revenue);
+    }
+
+    public RevenueResponseDTO delete(Long id) {
+        Revenue revenue = revenueRepository.findById(id)
+                .orElseThrow(() -> new RevenueNotFoundException(id));
+
+        revenueRepository.delete(revenue);
         return RevenueMapper.toResponseDTO(revenue);
     }
 

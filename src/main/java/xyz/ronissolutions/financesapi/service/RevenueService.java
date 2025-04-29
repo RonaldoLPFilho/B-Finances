@@ -46,7 +46,7 @@ public class RevenueService {
 
         revenue.setAmount(revenueRequestDTO.getAmount());
         revenue.setDescription(revenueRequestDTO.getDescription());
-        revenue.setData(revenueRequestDTO.getData());
+        revenue.setDate(revenueRequestDTO.getDate());
         revenue.setCategories(revenueRequestDTO.getCategories());
 
         revenueRepository.save(revenue);

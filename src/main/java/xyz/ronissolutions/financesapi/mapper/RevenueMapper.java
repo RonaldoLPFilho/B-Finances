@@ -4,7 +4,6 @@ import xyz.ronissolutions.financesapi.domain.Revenue;
 import xyz.ronissolutions.financesapi.dto.request.RevenueRequestDTO;
 import xyz.ronissolutions.financesapi.dto.response.RevenueResponseDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RevenueMapper {
@@ -14,7 +13,7 @@ public class RevenueMapper {
                 .id(revenue.getId())
                 .description(revenue.getDescription())
                 .amount(revenue.getAmount())
-                .data(revenue.getData())
+                .data(revenue.getDate())
                 .categories(revenue.getCategories())
                 .build();
 
@@ -26,7 +25,7 @@ public class RevenueMapper {
 
         revenue.setDescription(revenueRequestDTO.getDescription());
         revenue.setAmount(revenueRequestDTO.getAmount());
-        revenue.setData(revenueRequestDTO.getData());
+        revenue.setDate(revenueRequestDTO.getDate());
         revenue.setCategories(revenueRequestDTO.getCategories());
 
         return revenue;

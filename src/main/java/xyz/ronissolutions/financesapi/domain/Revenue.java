@@ -8,7 +8,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 @Entity
 @Data
@@ -24,7 +25,7 @@ public class Revenue {
     private BigDecimal amount;
 
     @NotNull
-    private LocalDateTime data;
+    private LocalDate date;
 
     @NotNull
     private RevenueCategories categories;

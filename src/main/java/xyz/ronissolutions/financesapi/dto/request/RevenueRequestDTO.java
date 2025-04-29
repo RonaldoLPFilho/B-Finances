@@ -5,7 +5,7 @@ import lombok.Data;
 import xyz.ronissolutions.financesapi.domain.RevenueCategories;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public class RevenueRequestDTO {
@@ -16,7 +16,7 @@ public class RevenueRequestDTO {
     private BigDecimal amount;
 
     @NotNull
-    private LocalDateTime data;
+    private LocalDate date;
 
     @NotNull
     private RevenueCategories categories;
